@@ -2,16 +2,24 @@ import './index.css'
 import React from "react";
 import { useState } from 'react'
 
+
 let nextId = 0;
 
 export const Adicionar = () => {
-  
+
   const [name, setName] = useState('');
   const [cargos, setCargos] = useState([]);
-
+  const [setor,setSetor] = useState({
+    name: '',
+    cargos: []
+  })
+ 
 
   const handleClick = () => {
-    console.log(cargos)
+    setName('');
+    setSetor({ ...setor, cargos: [cargos] });
+    setCargos([]);
+    console.log(setor);
   }
 
   return (
@@ -25,7 +33,8 @@ export const Adicionar = () => {
           <h1>Adicionar Setor</h1>
             <div className='d-ln'>
               <label className='ln'>Nome:</label>
-              <input className='ln-in'/>
+              <input className='ln-in'
+                onChange={e => setSetor({ ...setor, name: e.target.value })} />
             </div>
             <div className='d-lc'>
               <div className='lc'>
@@ -41,7 +50,7 @@ export const Adicionar = () => {
                   setCargos([
                    ...cargos,
                    { id: nextId++, name: name }
-                  ]); handleClick()
+                  ]);
                 }}>
                   Add
                 </button>
@@ -58,7 +67,7 @@ export const Adicionar = () => {
               ))}
             </div> 
             <div className='d-save'>
-              <button className='bt-save' >Salvar</button>
+              <button className='bt-save' onClick={handleClick} >Salvar</button>
             </div>
         </div>
       </div>
