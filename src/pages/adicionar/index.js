@@ -1,12 +1,13 @@
 import './index.css'
-import React from "react";
-import { useState } from 'react'
+import React, { useState, useEffect } from "react";
+import { useDispatch } from 'react-redux'
 
 
 let nextId = 0;
 
 export const Adicionar = () => {
 
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [cargos, setCargos] = useState([]);
   const [setor,setSetor] = useState({
@@ -19,8 +20,11 @@ export const Adicionar = () => {
     setName('');
     setSetor({ ...setor, cargos: [cargos] });
     setCargos([]);
-    console.log(setor);
   }
+
+  useEffect(() => {
+    dispatch({ type:'SET_SETOR', setor});
+  },[setor.cargos])
 
   return (
     <div>
