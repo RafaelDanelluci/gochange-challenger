@@ -1,0 +1,106 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.titulo{
+  max-width: 100%;
+  height: auto;
+  padding: 20px;
+}
+
+.body{
+  display: flex;
+  flex-direction: row;
+}
+
+.sider-left{
+  background-color: #d3d3d3;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: solid;
+  padding: 10px;
+  min-width: 300px;
+  min-height: 300px;
+  width: auto;
+  height: auto;
+  
+}
+
+.sider-right{
+  background-color: #d3d3d3;
+  border: solid;
+  padding: 10px;
+  width: 500px;
+  min-height: 500px;
+}
+
+.d-ln{
+  display: flex;
+  flex-direction: column;
+}
+
+.ln{
+ margin-top: 10px;
+ margin-bottom: 10px;
+ font-size: larger;
+}
+
+.ln-in{
+  height: 25px;
+  font-size: large;
+}
+
+.d-lc{
+  flex-direction: column;
+}
+
+.lc{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: larger;
+}
+
+.lc-in{
+  margin-right: 15px;
+  width: 60%;
+  height: 25px;
+  font-size: large;
+}
+
+.lc-bu{
+  background-color: #808080;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.bt-aut{
+  background-color: #808080;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: large;
+}
+
+.d-save{
+  display: flex;
+  justify-content: flex-end;
+  margin-block-start: 150px;
+}
+
+.bt-save{
+  background-color: #808080;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: large;
+}
