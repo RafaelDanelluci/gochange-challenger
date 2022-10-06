@@ -14,7 +14,6 @@ export const Adicionar = () => {
   const [cargos, setCargos] = useState([]);
   const [setor,setSetor] = useState([])
   
-  console.log(cargos)
   const handleClick = () => {
     dispatch(setSetores(setor));
     setCargos([])
