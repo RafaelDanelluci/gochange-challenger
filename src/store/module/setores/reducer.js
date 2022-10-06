@@ -1,7 +1,6 @@
 import produce from 'immer'
 
 const INITIAL_STATE = {
-  setor: {},
 };
 
 function setores(state = INITIAL_STATE,action) {

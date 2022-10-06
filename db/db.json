@@ -1,0 +1,21 @@
+{
+  "setores": {
+    "setor": {
+      "name": "casa",
+      "cargos": [
+        {
+          "id": 0,
+          "name": "aaa"
+        },
+        {
+          "id": 1,
+          "name": "sss"
+        },
+        {
+          "id": 2,
+          "name": "vvv"
+        }
+      ]
+    }
+  }
+}

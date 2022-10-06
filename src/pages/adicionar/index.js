@@ -1,6 +1,7 @@
 import './index.css'
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux'
+import { setSetores } from '../../store/module/setores/actions'
 
 
 let nextId = 0;
@@ -8,22 +9,19 @@ let nextId = 0;
 export const Adicionar = () => {
 
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [cargos, setCargos] = useState([]);
-  const [setor,setSetor] = useState({
-    name: '',
-    cargos: []
-  })
+  const [setor,setSetor] = useState([])
  
 
   const handleClick = () => {
-    setName('');
-    setSetor({ ...setor, cargos: [cargos] });
+    setName("");
+    setSetor({ ...setor, cargos: cargos });
     setCargos([]);
   }
 
   useEffect(() => {
-    dispatch({ type:'SET_SETOR', setor});
+    dispatch(setSetores(setor));
   },[setor.cargos])
 
   return (
@@ -38,7 +36,7 @@ export const Adicionar = () => {
             <div className='d-ln'>
               <label className='ln'>Nome:</label>
               <input className='ln-in'
-                onChange={e => setSetor({ ...setor, name: e.target.value })} />
+                onChange={e => setSetor({...setor, name: e.target.value })} />
             </div>
             <div className='d-lc'>
               <div className='lc'>
@@ -50,7 +48,7 @@ export const Adicionar = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <button className='lc-bu' onClick={() => {
-                  setName('');
+                  setName("");
                   setCargos([
                    ...cargos,
                    { id: nextId++, name: name }
