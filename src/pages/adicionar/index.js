@@ -2,6 +2,7 @@ import './index.css'
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { setSetores } from '../../store/module/setores/actions'
+import { SideMenu } from './side.menu'
 
 
 let nextId = 0;
@@ -12,17 +13,16 @@ export const Adicionar = () => {
   const [name, setName] = useState("");
   const [cargos, setCargos] = useState([]);
   const [setor,setSetor] = useState([])
- 
-
+  
+  console.log(cargos)
   const handleClick = () => {
-    setName("");
-    setSetor({ ...setor, cargos: cargos });
-    setCargos([]);
-  }
-
-  useEffect(() => {
     dispatch(setSetores(setor));
-  },[setor.cargos])
+    setCargos([])
+  }
+  
+  useEffect(() => {
+    setSetor({ ...setor, cargos: cargos });
+  },[cargos])
 
   return (
     <div>
@@ -30,6 +30,7 @@ export const Adicionar = () => {
       <div className='body'>
         <div className='sider-left'>
           <h1>Setores</h1>
+          <div> <SideMenu/> </div>
         </div>
         <div className='sider-right'>
           <h1>Adicionar Setor</h1>
@@ -48,28 +49,28 @@ export const Adicionar = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <button className='lc-bu' onClick={() => {
-                  setName("");
-                  setCargos([
-                   ...cargos,
-                   { id: nextId++, name: name }
-                  ]);
+                    setCargos([
+                     ...cargos,
+                     { id: nextId++, name: name }
+                    ]);
+                    setName("");
                 }}>
                   Add
                 </button>
               </div>
             </div>
             <div className='d-aut'>
-              {cargos.map(artist => (
-                <button className='bt-aut' key={artist.id} onClick={() => setCargos(
+              {cargos.map(cargo => (
+                <button className='bt-aut' type='button' key={cargo.id} onClick={() => setCargos(
                   cargos.filter(a =>
-                    a.id !== artist.id
+                    a.id !== cargo.id
                   )
                 )}
-                >{artist.name}</button>
+                >{cargo.name}</button>
               ))}
             </div> 
             <div className='d-save'>
-              <button className='bt-save' onClick={handleClick} >Salvar</button>
+              <button className='bt-save' type="button" onClick={handleClick} >Salvar</button>
             </div>
         </div>
       </div>
