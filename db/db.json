@@ -1,19 +1,19 @@
 {
   "setores": {
     "setor": {
-      "name": "casa",
+      "name": "Casa",
       "cargos": [
         {
           "id": 0,
-          "name": "cuidador"
+          "name": "Cuidador"
         },
         {
           "id": 1,
-          "name": "empregado"
+          "name": "Empregado"
         },
         {
           "id": 2,
-          "name": "jardineiro"
+          "name": "Jardineiro"
         }
       ]
     }
