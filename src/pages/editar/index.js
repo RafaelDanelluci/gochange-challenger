@@ -26,6 +26,9 @@ export const Editar = () => {
     if(!valiCargos.includes(name)){
       setCargos([...cargos, { id: nextId++, name: name }]);
       setName("");    
+    } else {
+      alert('Cargo ja existe');
+      setName("");
     }
   }
   
