@@ -19,11 +19,11 @@ export const Adicionar = () => {
   //no array de cargos e um Id.
   const handleAdd = () => {
     const valiCargos = cargos.map(cargo=> cargo.name);
-    if(!valiCargos.includes(name)){
+    if(!valiCargos.includes(name) && name !== ""){
       setCargos([...cargos, { id: nextId++, name: name }]);
       setName("");    
     } else {
-      alert('Cargo ja existe');
+      alert('Cargo inválido ou ja existe');
       setName("");
     }
   }
