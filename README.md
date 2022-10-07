@@ -14,7 +14,6 @@ Excluir remove o estado do store.
 
 ## Observações
 
-- Não consegui fazer as validações, portanto ainda é possivel adicionar mais de uma vez o mesmo cargo.
 - Não consegui fazer o redux salvar ou pegar os dados do banco de dados.
 - Só é possivel criar um setor por vez e sempre que tentar criar outro será salvo em cima do setor ja criado.
 

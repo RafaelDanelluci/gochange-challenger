@@ -22,8 +22,11 @@ export const Editar = () => {
   //função do botão Add, limpa o campo de input e insere um novo valor
   //no array de cargos e um id.
   const handleAdd = () => {
-    setCargos([...cargos, { id: nextId++, name: name }]);
-    setName("");
+    const valiCargos = cargos.map(cargo=> cargo.name);
+    if(!valiCargos.includes(name)){
+      setCargos([...cargos, { id: nextId++, name: name }]);
+      setName("");    
+    }
   }
   
   //função do botão salvar, envia o state para o store do redux, e limpa o
