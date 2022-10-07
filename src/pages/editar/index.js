@@ -10,19 +10,32 @@ let nextId = 0;
 
 export const Editar = () => {
   
+  //Tras o state da store.
   const setores  = useSelector(state => state.setor.setor)
 
+  //Hooks do react e dispatch do redux.
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [cargos, setCargos] = useState([]);
   const [setor, setSetor] = useState([]);
   
-
-  const handleClick = () => {
-    dispatch(setSetores(setor));
-    setCargos([])
+  //função do botão Add, limpa o campo de input e insere um novo valor
+  //no array de cargos e um id.
+  const handleAdd = () => {
+    setCargos([...cargos, { id: nextId++, name: name }]);
+    setName("");
   }
   
+  //função do botão salvar, envia o state para o store do redux, e limpa o
+  //hook do react e reset a variavel de id.
+  const handleClick = () => {
+    dispatch(setSetores(setor));
+    setCargos([]);
+    nextId = 0;
+  }
+
+  //Hook do react para salvar os dados do array cargos no array que será
+  //mandado para o store do redux.
   useEffect(() => {
     setSetor({ ...setor, name:setores.name, cargos: cargos });
   },[cargos])
@@ -39,7 +52,7 @@ export const Editar = () => {
           <h1>Editar {setores.name}</h1>
             <div className='d-ln'>
               <label className='ln'>Nome:</label>
-              <input className='ln-in' value={setores.name}/>
+              <input className='ln-in' value={setores.name} readOnly/>
             </div>
             <div className='d-lc'>
               <div className='lc'>
@@ -50,24 +63,20 @@ export const Editar = () => {
                   value={name}
                   onChange={e => setName(e.target.value)}
                 />
-                <button className='lc-bu' onClick={() => {
-                  setName("");
-                  setCargos([
-                   ...cargos,
-                   { id: nextId++, name: name }
-                  ]);
-                }}>
+                <button className='lc-bu' onClick={handleAdd}>
                   Add
                 </button>
               </div>
             </div>
             <div className='d-aut'>
               {cargos.map(cargo => (
-                <button className='bt-aut' type='button' key={cargo.id} onClick={() => setCargos(
-                  cargos.filter(a =>
-                    a.id !== cargo.id
+                <button className='bt-aut' type='button' key={cargo.id}
+                  onClick={() => setCargos(
+                    cargos.filter(a =>
+                      a.id !== cargo.id
+                    )
                   )
-                )}
+                }
                 >{cargo.name}</button>
               ))}
             </div> 
