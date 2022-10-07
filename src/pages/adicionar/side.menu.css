@@ -9,6 +9,7 @@
   outline: none;
   transition: 0.4s;
   font-size: larger;
+  margin-top: 15px;
 }
 
 .active, .accordion:hover {
@@ -18,6 +19,8 @@
 .dv-bt-sv{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .bt-save{
