@@ -39,7 +39,6 @@ export const Adicionar = () => {
     setSetor({ ...setor, cargos: cargos });
   },[cargos])
 
-  console.log(cargos)
   return (
     <div>
       <h1 className='titulo'>SETORES</h1>
